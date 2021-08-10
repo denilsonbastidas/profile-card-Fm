@@ -1,0 +1,205 @@
+
+// ====== Variables Fonts Order ========= //
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
+$font-user:'Kumbh Sans', sans-serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&display=swap');
+$font-user-bold: 'Kumbh Sans', sans-serif;
+
+$Dark-cyan: hsl(185, 75%, 39%);
+$Very-dark: hsl(229, 23%, 23%);
+$Dark-grayish: hsl(227, 10%, 46%);
+
+// ====== Variables Fonts Order END ========= //
+
+
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+    background:$Dark-cyan;
+    background-image: url(../images/bg-pattern-top.svg),
+                    url(../images/bg-pattern-bottom.svg);
+    background-blend-mode: normal;
+    background-repeat: no-repeat, no-repeat;
+    background-position: bottom 50vh right 50vw, top 50vh left 50vw;
+}
+
+@mixin flex($direction){
+    display: flex;
+    flex-flow: $direction wrap;
+}
+
+// ====== Card User ======== //
+    .wrap-user{
+        @include flex(column);
+        align-items: center;
+        justify-content: center;
+          width: 90%;
+        min-height: 600px;
+        margin: 0px auto;
+        border-radius: 10px;      
+    }
+@keyframes show {
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+    
+}
+    .content-box{
+        width: 30%;
+        min-height: 300px;
+        background: #ffff;
+        @include flex(column);
+        border-radius: 10px;
+        box-shadow: 0px 0px 1px rgba(0,0, 0, 0.3),
+                    0px 3px 7px rgba(0,0, 0, 0.3),
+                    0px 0px 1px white inset,
+                    0px -3px 2px rgba(0,0, 0, 0.3) inset;
+                    animation: show 1s linear;
+                    
+        & .bg-portada{
+            width: 100%;
+
+            & img{
+                width: 100%;
+            border-radius: 10px 10px 0px 0px;
+            }
+        }
+
+        .cont-user{
+            @include flex(column);
+            align-items: center;
+            flex-basis: 100%;
+            margin-bottom: 20px;
+
+        .cont-user-perfil{
+            border:6px solid #fff;
+            margin-top: -35px;
+            border-radius: 999px;
+            transition: all 450ms;
+            cursor: pointer;
+
+            & img{
+             display: block;
+             width: 100%;
+            border-radius: 999px;
+            }
+        }
+
+        .cont-user-perfil:hover{
+            border:6px solid #2cc2c5;
+            }
+    }
+    }
+
+    .text-user{
+        @include flex(column);
+        align-items: center;
+        margin-bottom: 10px;
+
+        & h3{
+            margin: 0px;
+            font-family:$font-user-bold;
+            font-size: 16px;
+
+            & .edad{
+                font-family: $font-user;
+                color: $Very-dark;
+                font-weight: normal;
+                margin-left: 5px;
+                font-size: 16px;
+            }
+        }
+        & p{
+            margin: 10px;
+            color: $Very-dark;
+            font-family: $font-user;
+            
+        }
+    }
+   
+    %parrafo{
+      font-family: $font-user;
+      font-weight: normal;
+      color: $Very-dark;
+    }
+
+    .cont-followers{
+        @include flex(row);
+        flex-basis: 100%;
+        justify-content: center;
+        text-align: center;
+        border-top: 1px solid #ccc;
+        padding: 20px;
+
+        %foll{
+            flex-grow: 1;
+            font-family:$font-user-bold;
+            font-size: 14px;
+        }
+
+        & .followers{
+            @extend %foll;
+
+            h3{
+                margin: 10px;
+            }
+
+            & p{
+                @extend %parrafo;
+                margin: 0px;
+            }
+        }
+
+        & .likes{
+            @extend %foll;
+            
+            h3{
+                margin: 10px;
+            }
+
+            & p{
+                @extend %parrafo;
+                margin: 0px;
+            }
+        }
+
+        & .photos{
+            @extend %foll;
+
+            h3{
+                margin: 10px;
+            }
+
+            & p{
+                @extend %parrafo;
+                margin: 0px;
+            }
+        }
+    }
+
+// ====== Card User END ======== //
+
+
+ // ====== Responsive Web =========//
+
+ @media (max-width: 1024px) {
+   .content-box{
+       width: 48%;
+   }
+
+ }
+
+ // small-phone
+ @media (max-width: 575px) {
+    .content-box{
+        width: 80%;
+    }
+
+ }
+
+
