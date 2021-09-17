@@ -12,7 +12,6 @@ $Dark-grayish: hsl(227, 10%, 46%);
 
 // ====== Variables Fonts Order END ========= //
 
-
 body{
     margin: 0px;
     padding: 0px;
@@ -40,15 +39,9 @@ body{
         margin: 0px auto;
         border-radius: 10px;      
     }
-@keyframes show {
-        0%{
-            opacity: 0;
-        }
-        100%{
-            opacity: 1;
-        }
-    
-}
+
+   
+//? ================> caja contenedora <==============
     .content-box{
         width: 30%;
         min-height: 300px;
@@ -59,7 +52,7 @@ body{
                     0px 3px 7px rgba(0,0, 0, 0.3),
                     0px 0px 1px white inset,
                     0px -3px 2px rgba(0,0, 0, 0.3) inset;
-                    animation: show 1s linear;
+        animation: show 1s linear;
                     
         & .bg-portada{
             width: 100%;
@@ -68,13 +61,13 @@ body{
                 width: 100%;
             border-radius: 10px 10px 0px 0px;
             }
-        }
-
+        }   
         .cont-user{
             @include flex(column);
             align-items: center;
             flex-basis: 100%;
             margin-bottom: 20px;
+            z-index: 1;
 
         .cont-user-perfil{
             border:6px solid #fff;
@@ -82,6 +75,7 @@ body{
             border-radius: 999px;
             transition: all 450ms;
             cursor: pointer;
+            animation: showPerfil 1s ease;
 
             & img{
              display: block;
@@ -96,10 +90,12 @@ body{
     }
     }
 
+
     .text-user{
         @include flex(column);
         align-items: center;
         margin-bottom: 10px;
+        animation: showText 1s ease;
 
         & h3{
             margin: 0px;
@@ -117,8 +113,7 @@ body{
         & p{
             margin: 10px;
             color: $Very-dark;
-            font-family: $font-user;
-            
+            font-family: $font-user;            
         }
     }
    
@@ -184,8 +179,33 @@ body{
 
 // ====== Card User END ======== //
 
+ //? ========== Animacioenes ===========
+ @keyframes show {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 
- // ====== Responsive Web =========//
+}
+
+@keyframes showPerfil {
+0%{
+    transform: translateY(40px);
+}
+100%{
+    transform: translateY(0px);
+}
+}
+
+@keyframes showText {
+    0%{transform: translateX(-50%);}
+    100%{transform: translateX(0%);}
+}
+
+
+ //? ====== Responsive Web =========//
 
  @media (max-width: 1024px) {
    .content-box{
@@ -197,9 +217,26 @@ body{
  // small-phone
  @media (max-width: 575px) {
     .content-box{
-        width: 80%;
+        width: 100%;
+        animation: none;
     }
 
- }
+    .text-user{
+        animation: none;
+
+        h3{
+        font-size: 19px;
+        }
+        p{
+            font-size: 17px;
+        }
+    }
+    .content-box .cont-user .cont-user-perfil{
+        animation: none;
+    }
+
+    }
+
+ 
 
 

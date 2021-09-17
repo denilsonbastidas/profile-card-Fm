@@ -31,24 +31,6 @@ body {
   border-radius: 10px;
 }
 
-@-webkit-keyframes show {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes show {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .content-box {
   width: 30%;
   min-height: 300px;
@@ -90,6 +72,7 @@ body {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
   margin-bottom: 20px;
+  z-index: 1;
 }
 
 .content-box .cont-user .cont-user-perfil {
@@ -99,6 +82,8 @@ body {
   -webkit-transition: all 450ms;
   transition: all 450ms;
   cursor: pointer;
+  -webkit-animation: showPerfil 1s ease;
+          animation: showPerfil 1s ease;
 }
 
 .content-box .cont-user .cont-user-perfil img {
@@ -123,6 +108,8 @@ body {
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 10px;
+  -webkit-animation: showText 1s ease;
+          animation: showText 1s ease;
 }
 
 .text-user h3 {
@@ -201,6 +188,68 @@ body {
   margin: 0px;
 }
 
+@-webkit-keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes showPerfil {
+  0% {
+    -webkit-transform: translateY(40px);
+            transform: translateY(40px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+@keyframes showPerfil {
+  0% {
+    -webkit-transform: translateY(40px);
+            transform: translateY(40px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+@-webkit-keyframes showText {
+  0% {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@keyframes showText {
+  0% {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
 @media (max-width: 1024px) {
   .content-box {
     width: 48%;
@@ -209,7 +258,23 @@ body {
 
 @media (max-width: 575px) {
   .content-box {
-    width: 80%;
+    width: 100%;
+    -webkit-animation: none;
+            animation: none;
+  }
+  .text-user {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .text-user h3 {
+    font-size: 19px;
+  }
+  .text-user p {
+    font-size: 17px;
+  }
+  .content-box .cont-user .cont-user-perfil {
+    -webkit-animation: none;
+            animation: none;
   }
 }
 /*# sourceMappingURL=style.css.map */
